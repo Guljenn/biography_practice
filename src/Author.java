@@ -12,14 +12,13 @@ public class Author {
     //Create 6 args custom constructor here
     //YOUR CODE HERE
 
-    public Author(String firstName, String lastName, String country, boolean isAlive, int age, ArrayList<String> books){
+    public Author(String firstName, String lastName, String country, boolean isAlive, int age, List<Book> books){
         this.firstName = firstName;
         this.lastName = lastName;
         this.country = country;
         this.isAlive = isAlive;
         this.age = age;
-       // this.books = books;
-        this.books = new ArrayList<>(books);
+        this.books = books;
 
 
 
@@ -36,7 +35,7 @@ public class Author {
     public String country;
     public boolean isAlive;
     public int age;
-    public List<String> books;
+    public List<Book> books;
 
 
     /*
@@ -47,26 +46,22 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "Author{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", country='" + country + '\'' +
                 ", isAlive=" + isAlive +
                 ", age=" + age +
-                ", books=" + books +
+                ", books='" + books + '\'' +
                 '}';
-
-
-        // QUESTIONS ABOUT AUTHOR INFORMATION
-
-
     }
+
     public static final String authorsFirstName = "What is your favorite author's first name?";
     public static final String authorsLastName = "What is your favorite author's last name?";
     public static final String authorsCountry = "Where is your favorite author from?";
     public static final String isAuthorAlive = "Is your favorite author alive?(Y/N)";
     public static final String ageOfAuthor = "How old is your favorite author?";
-    public static final String listOfBooks = "Would you like to enter book info? (Y/N)";
+    public static final String bookInfo = "Would you like to enter book info? (Y/N)";
 
 
 

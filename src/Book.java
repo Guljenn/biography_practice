@@ -46,4 +46,6 @@ public class Book {
     public static final String nameOfBook = "What is the name of the book?";
     public static final String genreOfBook = "What is the genre of the book?";
     public static final String pagesOfBook = "How many pages does the book have?";
+
+
 }
