@@ -54,14 +54,13 @@ public class Biography {
 
 
         System.out.println(Author.isAuthorAlive);
-        String isAlive = userInput.next();
+        boolean isAliveAnswer = userInput.next().toLowerCase().startsWith("y");
 
         int age = 0;
-        if (Author.isAlive() && isAlive.toLowerCase().startsWith("y")) {
+        if (isAliveAnswer) {
             System.out.println(Author.ageOfAuthor);
             age = userInput.nextInt();
         }
-        Author author = new Author(firstName, lastName, country, false, age, books);
 
 
         String bookInfo;
@@ -69,25 +68,34 @@ public class Biography {
             System.out.println(Author.bookInfo);
             bookInfo = userInput.next();
 
-            System.out.println(Book.nameOfBook);
-            String name = userInput.nextLine();
-            userInput.nextLine();
+            if(bookInfo.toLowerCase().startsWith("y")){
+                System.out.println(Book.nameOfBook);
+                String name = userInput.nextLine();
+                userInput.nextLine();
 
-            System.out.println(Book.genreOfBook);
-            String genre = userInput.next();
+                System.out.println(Book.genreOfBook);
+                String genre = userInput.next();
 
-            System.out.println(Book.pagesOfBook);
-            int pages = userInput.nextInt();
+                System.out.println(Book.pagesOfBook);
+                int pages = userInput.nextInt();
 
-            Book book = new Book(name, genre, pages);
-            books.add(book);
+                Book book = new Book(name, genre, pages);
+                books.add(book);
+            }
 
 
         } while (bookInfo.toLowerCase().startsWith("y"));
 
+        Author author = new Author(firstName, lastName, country, isAliveAnswer, age, books);
+
         System.out.println("Author's information = " + author + "\n");
-        System.out.println("Author's books are listed below: \n" + books);
+        if(!books.isEmpty()) {
+            System.out.println("Author's books are listed below:");
+//            for (Book book : books) {
+//                System.out.println(book);
+//            }
 
-
+            books.forEach(System.out::println);
+        }
     }
     }

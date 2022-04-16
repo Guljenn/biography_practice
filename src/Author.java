@@ -62,12 +62,4 @@ public class Author {
     public static final String isAuthorAlive = "Is your favorite author alive?(Y/N)";
     public static final String ageOfAuthor = "How old is your favorite author?";
     public static final String bookInfo = "Would you like to enter book info? (Y/N)";
-
-    public static boolean isAlive(){
-
-        return true;
-    }
-
-
-
 }
