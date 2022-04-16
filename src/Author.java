@@ -46,14 +46,14 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Author{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", country='" + country + '\'' +
-                ", isAlive=" + isAlive +
-                ", age=" + age +
-                ", books='" + books + '\'' +
-                '}';
+        String s = "Author{";
+                if(this.firstName != null) s += "firstName='" + firstName + '\'';
+                if(this.lastName != null) s += ", lastName='" + lastName + '\'' ;
+                if(this.country != null) s += ", country='" + country + '\'';
+                if(!this.isAlive) s += ", isAlive=" + this.isAlive;
+                if(this.age != 0) s += ", age=" + age;
+               s += '}';
+        return s;
     }
 
     public static final String authorsFirstName = "What is your favorite author's first name?";
@@ -62,6 +62,11 @@ public class Author {
     public static final String isAuthorAlive = "Is your favorite author alive?(Y/N)";
     public static final String ageOfAuthor = "How old is your favorite author?";
     public static final String bookInfo = "Would you like to enter book info? (Y/N)";
+
+    public static boolean isAlive(){
+
+        return true;
+    }
 
 
 

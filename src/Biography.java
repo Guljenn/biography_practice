@@ -40,6 +40,7 @@ public class Biography {
         //YOUR CODE HERE
 
         Scanner userInput = new Scanner(System.in);
+        List<Book> books = new ArrayList<>();
 
 
         System.out.println(Author.authorsFirstName);
@@ -51,55 +52,42 @@ public class Biography {
         System.out.println(Author.authorsCountry);
         String country = userInput.next();
 
+
         System.out.println(Author.isAuthorAlive);
         String isAlive = userInput.next();
 
-
-        if (isAlive.toLowerCase().startsWith("y"))
+        int age = 0;
+        if (Author.isAlive() && isAlive.toLowerCase().startsWith("y")) {
             System.out.println(Author.ageOfAuthor);
-            int age = userInput.nextInt();
+            age = userInput.nextInt();
+        }
+        Author author = new Author(firstName, lastName, country, false, age, books);
 
-
-        List<Book> bok = new ArrayList<>();
-
-
-        Author author = new Author(firstName, lastName, country, false, age, bok);
-        System.out.println(author);
 
         String bookInfo;
-       do{
-           System.out.println(Author.bookInfo);
-           bookInfo = userInput.next();
+        do {
+            System.out.println(Author.bookInfo);
+            bookInfo = userInput.next();
 
-           System.out.println(Book.nameOfBook);
-           String name = userInput.next();
+            System.out.println(Book.nameOfBook);
+            String name = userInput.nextLine();
+            userInput.nextLine();
 
-           System.out.println(Book.genreOfBook);
-           String genre = userInput.next();
+            System.out.println(Book.genreOfBook);
+            String genre = userInput.next();
 
-           System.out.println(Book.pagesOfBook);
-           int pages = userInput.nextInt();
+            System.out.println(Book.pagesOfBook);
+            int pages = userInput.nextInt();
 
-           Book book = new Book(name, genre, pages);
-           bok.add(book);
-           System.out.println(bok);
-
-
-       } while (bookInfo.toLowerCase().startsWith("y"));
+            Book book = new Book(name, genre, pages);
+            books.add(book);
 
 
+        } while (bookInfo.toLowerCase().startsWith("y"));
+
+        System.out.println("Author's information = " + author + "\n");
+        System.out.println("Author's books are listed below: \n" + books);
 
 
-
-
-
-
-
-
-
-
-
-
-
-        }
+    }
     }
